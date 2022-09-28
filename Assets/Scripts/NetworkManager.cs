@@ -65,7 +65,7 @@ public class NetworkManager : PunBehaviour
     {
         Debug.Log($"Player {newPlayer.NickName} entered to room!");
 
-        if (PhotonNetwork.room.PlayerCount >= 2)
+        if (PhotonNetwork.room.PlayerCount >= 2 && SceneManager.GetActiveScene().buildIndex == 0)
         {
             PhotonNetwork.LoadLevelAsync(1);
         }

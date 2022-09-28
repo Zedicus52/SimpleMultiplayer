@@ -37,7 +37,7 @@ public class PlayerController : MonoBehaviour
         if (_photonView.isMine == false)
         {
             Destroy(gameObject.GetComponentInChildren<Camera>().gameObject);
-            _playerGraphic.ChangeColor();   
+            _playerGraphic.ChangeModel();   
         }
     }
 
@@ -55,17 +55,16 @@ public class PlayerController : MonoBehaviour
     {
         Fall();
         float speed = runSpeed;
-        if (_isGrounded)
-        {
-            if (Input.GetKey(KeyCode.LeftControl))
-                speed = walkSpeed;
-            if (Input.GetKey(KeyCode.LeftShift))
-                speed = shiftSpeed;
-            if(Input.GetKeyDown(KeyCode.Space))
-                Jump();
-        }
         
+        if (Input.GetKey(KeyCode.LeftControl))
+            speed = walkSpeed;
+        if (Input.GetKey(KeyCode.LeftShift))
+            speed = shiftSpeed;
+        if(Input.GetKeyDown(KeyCode.Space) && _isGrounded)
+            Jump();
+
         _characterController.Move(_direction * speed * Time.deltaTime);
+        _playerGraphic.SetDirection(_direction*speed);
     }
 
     private void Fall()
