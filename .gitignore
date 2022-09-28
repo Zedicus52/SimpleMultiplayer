@@ -22,6 +22,9 @@
 # Visual Studio cache directory
 .vs/
 
+# Exe test builds
+.Exe_builds/
+
 # Gradle cache directory
 .gradle/
 
