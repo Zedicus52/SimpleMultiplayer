@@ -1,10 +1,11 @@
+using System;
 using UnityEngine;
 
 [RequireComponent(typeof(CharacterController))]
 [RequireComponent(typeof(PhotonView))]
 public class PlayerController : MonoBehaviour
 {
-
+    public static event Predicate<Vector3> DontMoving; 
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
     [SerializeField] private float shiftSpeed;
@@ -62,7 +63,9 @@ public class PlayerController : MonoBehaviour
             speed = shiftSpeed;
         if(Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             Jump();
-
+        
+        DontMoving?.Invoke(_direction);
+        
         _characterController.Move(_direction * speed * Time.deltaTime);
         _playerGraphic.SetDirection(_direction*speed);
     }
