@@ -23,7 +23,7 @@
 .vs/
 
 # Exe test builds
-.Exe_builds/
+*Exe_builds/
 
 # Gradle cache directory
 .gradle/
