@@ -4,7 +4,8 @@ using UnityEngine;
 public class CameraMovement : MonoBehaviour
 {
    [Header("Limits")]
-   [SerializeField] private float verticalAngel;
+   [SerializeField] private float maxVerticalAngel;
+   [SerializeField] private float minVerticalAngel;
    private Camera _mainCamera;
 
    private Vector3 _direction;
@@ -45,7 +46,7 @@ public class CameraMovement : MonoBehaviour
       if (_tempDirection.x < 0.5f && _tempDirection.x > -0.5f)
          _direction = _tempDirection;
       
-      _currentVerticalAngle = Mathf.Clamp(_currentVerticalAngle + y, -verticalAngel, verticalAngel);
+      _currentVerticalAngle = Mathf.Clamp(_currentVerticalAngle + y, minVerticalAngel, maxVerticalAngel);
       
       _rotation = Quaternion.LookRotation(_direction) * Quaternion.Euler(_currentVerticalAngle,0,0);
 
@@ -69,7 +70,6 @@ public class CameraMovement : MonoBehaviour
       }
       _canMove = false;
       return false;
-
    } 
    
 }

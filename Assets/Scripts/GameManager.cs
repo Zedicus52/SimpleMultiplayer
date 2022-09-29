@@ -6,10 +6,7 @@ public class GameManager : PunBehaviour
 {
     [SerializeField] private GameObject playerPrefab;
 
-    private void Start()
-    {
-        CreatePlayer();
-    }
+    private void Start() => CreatePlayer();
 
     private void CreatePlayer()
     {

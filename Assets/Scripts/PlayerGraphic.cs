@@ -10,10 +10,9 @@ public class PlayerGraphic : MonoBehaviour
   private static readonly int DirectionX = Animator.StringToHash("XDirection");
   private static readonly int DirectionY= Animator.StringToHash("YDirection");
 
-  public void ChangeModel()
-  {
+  public void ChangeModel() => 
     meshRenderer.sharedMesh = characterMeshes[Random.Range(0, characterMeshes.Count)];
-  }
+
 
   public void SetDirection(Vector3 direction)
   {

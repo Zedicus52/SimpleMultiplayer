@@ -91,10 +91,5 @@ public class PlayerController : MonoBehaviour
     }
     
     private bool IsGrounded() => Physics.CheckSphere(footPosition.position, groundDistance, groundMask);
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(footPosition.position, groundDistance);
-    }
+    
 }
