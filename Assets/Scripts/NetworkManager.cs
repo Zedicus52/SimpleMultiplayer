@@ -68,7 +68,7 @@ public class NetworkManager : PunBehaviour
 
     public override void OnPhotonPlayerConnected(PhotonPlayer newPlayer)
     {
-        Debug.Log($"Player {newPlayer.NickName} entered to room!");
+        ShowInfo?.Invoke($"Player {newPlayer.NickName} entered to room!");
         PlayerJoined?.Invoke(newPlayer);
         StartingGame?.Invoke(PhotonNetwork.room.PlayerCount);
     }
@@ -85,7 +85,7 @@ public class NetworkManager : PunBehaviour
         if (PhotonNetwork.room.PlayerCount < 2)
             PhotonNetwork.LeaveRoom();
         PlayerLeave?.Invoke(otherPlayer);
-        Debug.Log($"Player {otherPlayer.NickName} from to room!");
+        ShowInfo?.Invoke($"Player {otherPlayer.NickName} leave from room!");
     }
 
     private void UpdatePlayersInRoom()

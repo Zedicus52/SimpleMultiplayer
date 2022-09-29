@@ -205,7 +205,7 @@ MonoBehaviour:
   runSpeed: 7
   shiftSpeed: 9
   jumpHeight: 3
-  groundDistance: 0.14
+  groundDistance: 0.2
   groundMask:
     serializedVersion: 2
     m_Bits: 8
